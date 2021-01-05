@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: etcd-pv0
+  labels:
+    usage: etcd-data-pv
+  namespace: m3db
+spec:
+  capacity:
+    storage: 30Gi
+  # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce # ReadWriteOnce ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: fast-disks
+  local:
+    path: /mnt/fast-disks
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - kind-ha-worker
+                - kind-ha-worker2
+                - kind-ha-workee3

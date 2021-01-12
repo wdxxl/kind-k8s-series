@@ -34,3 +34,7 @@ spec:
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
   version: v2.22.1
+#  remoteWrite:
+#  - url: https://127.0.0.1:1234/write
+#  remoteRead:
+#  - url: https://127.0.0.1:1234/read

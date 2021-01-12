@@ -36,5 +36,9 @@ spec:
   version: v2.22.1
 #  remoteWrite:
 #  - url: https://127.0.0.1:1234/write
+#    writeRelabelConfigs:
+#      - targetLabel: metrics_storage
+#        replacement: m3db_remote
 #  remoteRead:
 #  - url: https://127.0.0.1:1234/read
+#    readRecent: true
